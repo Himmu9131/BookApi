@@ -2,18 +2,17 @@ FROM eclipse-temurin:17-jdk-alpine
 
 WORKDIR /app
 
-# Copy Maven wrapper and pom.xml
-COPY .mvn/ .mvn
-COPY mvnw pom.xml ./
+# Copy everything
+COPY . .
 
-# Download dependencies
-RUN chmod +x mvnw && ./mvnw dependency:go-offline
-
-# Copy source code
-COPY src ./src
+# Make mvnw executable
+RUN chmod +x mvnw
 
 # Build the application
 RUN ./mvnw clean package -DskipTests
 
-# Run the Spring Boot jar (EXACT NAME)
-CMD ["java", "-jar", "target/BookApi-0.0.1-SNAPSHOT.jar"]
+# Copy the built jar to a fixed name
+RUN cp target/*.jar app.jar
+
+# Run the app
+CMD ["java", "-jar", "app.jar"]
