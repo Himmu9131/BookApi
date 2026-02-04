@@ -1,7 +1,7 @@
 # Documentation (with Live Deployment Link)
 
   # Live Application URL
-https://<your-app-name>.onrender.com
+https://bookapi-1-7avc.onrender.com
 
 
 The application is deployed and publicly accessible at the above URL.
@@ -10,14 +10,14 @@ The application is deployed and publicly accessible at the above URL.
 
 # Add a Book
 
-POST /api/books
+POST /api/book/save
 
         Description:
         Creates a new book and stores it in memory.
         
          Example:
         
-        POST https://<your-app-name>.onrender.com/api/books
+        POST https://bookapi-1-7avc.onrender.com/api/book/save
         
         
         Request Body (JSON):
@@ -38,14 +38,14 @@ POST /api/books
 
 # Get Book by ID
 
-GET /api/books/{id}
+GET /api/book/{id}
 
         Description:
         Fetches a book by its unique ID.
         
         Full URL Example:
         
-        GET https://<your-app-name>.onrender.com/api/books/1
+        GET https://bookapi-1-7avc.onrender.com/api/book/1
 
 
         Responses:
